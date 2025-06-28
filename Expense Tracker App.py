@@ -93,23 +93,23 @@ axs[1, 1].annotate(f'Highest: {highest_value}',
 axs[1, 1].set_title('Daily Spending Trend')
 axs[1, 1].legend()
 
-# # 6. Summary Stats Plotm
-# axs[1, 2].axis('on')
-# axs[1, 2].text(0.1, 0.8, f'Total Spend: ₹{df["amount"].sum():.2f}', fontsize=12)
-# axs[1, 2].text(0.1, 0.6, f'Avg Monthly: ₹{monthly.mean():.2f}', fontsize=12)
-# axs[1, 2].text(0.1, 0.4, f'Max Category: {top_cats.idxmax()} ₹{top_cats.max():.2f}', fontsize=12)
-# axs[1, 2].set_title('📊 Summary Stats')
-# axs[1, 2].axis('off')
+# 6. Summary Stats Plotm
+axs[1, 2].axis('on')
+axs[1, 2].text(0.1, 0.8, f'Total Spend: ₹{df["amount"].sum():.2f}', fontsize=12)
+axs[1, 2].text(0.1, 0.6, f'Avg Monthly: ₹{monthly.mean():.2f}', fontsize=12)
+axs[1, 2].text(0.1, 0.4, f'Max Category: {top_cats.idxmax()} ₹{top_cats.max():.2f}', fontsize=12)
+axs[1, 2].set_title('📊 Summary Stats')
+axs[1, 2].axis('off')
 
-# plt.tight_layout(rect=(0, 0.03, 1, 0.95))
-# plt.show()
+plt.tight_layout(rect=(0, 0.03, 1, 0.95))
+plt.show()
 
-# # -------------------------
-# # Export to Excel
-# # -------------------------
-# output_file = 'expenses_report.xlsx'
-# df.reset_index().to_excel(output_file, index=False)
-# print(f"\n📁 Expense data exported to: {os.path.abspath(output_file)}")
+# -------------------------
+# Export to Excel
+# -------------------------
+output_file = 'expenses_report.xlsx'
+df.reset_index().to_excel(output_file, index=False)
+print(f"\n📁 Expense data exported to: {os.path.abspath(output_file)}")
 
-# # Close DB connection
-# conn.close()
+# Close DB connection
+conn.close()
